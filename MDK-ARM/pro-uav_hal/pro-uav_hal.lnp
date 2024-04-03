@@ -41,6 +41,8 @@
 "pro-uav_hal\com_filter.o"
 "pro-uav_hal\app_pwm.o"
 "pro-uav_hal\int_pwm.o"
+"pro-uav_hal\app_battery.o"
+"pro-uav_hal\int_battery.o"
 --library_type=microlib --strict --scatter "pro-uav_hal\pro-uav_hal.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

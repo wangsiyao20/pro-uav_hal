@@ -30,6 +30,7 @@
 #include "stdio.h"
 #include "App_Mpu6050.h"
 #include "App_PWM.h"
+#include "App_Battery.h"
 
 /* USER CODE END Includes */
 
@@ -62,6 +63,7 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
 
 /* USER CODE END 0 */
 
@@ -113,13 +115,12 @@ int main(void)
   // App_Mpu6050_Test();
   // App_PWM_SetPWM(100, 100, 100, 100);
 
-  uint16_t adcValue_Buff[5] = {0};
-  // Æô¶¯ADC
-  HAL_ADC_Start_DMA(&hadc1, (uint32_t *)adcValue_Buff, 5);
+  App_Battery_Start();
+  
   while (1)
   {
     // App_MPU6050_GetAngle();
-    float tmp = adcValue_Buff[0] * 3.3 / 4095 * 2;
+    float tmp = App_Battery_VolCheck();
     printf("%f\r\n", tmp);
     HAL_Delay(10);
     /* USER CODE END WHILE */

@@ -8,6 +8,8 @@
         "com_filter.h": "c",
         "app_pwm.h": "c",
         "int_pwm.h": "c",
-        "tim.h": "c"
+        "tim.h": "c",
+        "app_battery.h": "c",
+        "int_battery.h": "c"
     }
 }

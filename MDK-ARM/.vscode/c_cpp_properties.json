@@ -16,6 +16,8 @@
                 "c:\\1stm32\\pro-stm32-6-uav_hal\\pro-uav_hal\\Com\\filter",
                 "c:\\1stm32\\pro-stm32-6-uav_hal\\pro-uav_hal\\EleMachine-\\App",
                 "c:\\1stm32\\pro-stm32-6-uav_hal\\pro-uav_hal\\EleMachine-\\Int",
+                "c:\\1stm32\\pro-stm32-6-uav_hal\\pro-uav_hal\\Battery_Power\\App",
+                "c:\\1stm32\\pro-stm32-6-uav_hal\\pro-uav_hal\\Battery_Power\\Int",
                 "C:\\Keil_v5\\ARM\\ARMCC\\include",
                 "c:\\1stm32\\pro-stm32-6-uav_hal\\pro-uav_hal\\MDK-ARM",
                 "c:\\1stm32\\pro-stm32-6-uav_hal\\pro-uav_hal\\Core\\Src",

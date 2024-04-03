@@ -36,7 +36,7 @@ void App_Mpu6050_Init(void) {
 
 
 /**
- * @description: 通过MPU原始数据计算出角度
+ * @description: 通过MPU原始数据计算出角度（通过arctan求角度）
  * @return {*}
  */
 void App_MPU6050_GetAngle(void) 

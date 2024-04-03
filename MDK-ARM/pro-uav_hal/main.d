@@ -41,3 +41,4 @@ pro-uav_hal\main.o: C:\Keil_v5\ARM\02_arm5_compiler\Bin\..\include\stdio.h
 pro-uav_hal\main.o: ../Angle-MPU_6050/App/App_Mpu6050.h
 pro-uav_hal\main.o: ../Angle-MPU_6050/Int/Int_Mpu6050.h
 pro-uav_hal\main.o: ../EleMachine-/App/App_PWM.h
+pro-uav_hal\main.o: ..\Battery_Power\App\App_Battery.h
