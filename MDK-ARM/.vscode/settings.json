@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "app_mpu6050.h": "c",
+        "int_mpu6050.h": "c",
+        "main.h": "c",
+        "i2c.h": "c",
+        "stdio.h": "c",
+        "com_filter.h": "c",
+        "app_pwm.h": "c",
+        "int_pwm.h": "c",
+        "tim.h": "c"
+    }
+}
