@@ -28,9 +28,10 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "stdio.h"
-#include "App_Mpu6050.h"
+// #include "App_Mpu6050.h"
 #include "App_PWM.h"
 #include "App_Battery.h"
+#include "App_Mpu6050_Quaternion.h"
 
 /* USER CODE END Includes */
 
@@ -104,7 +105,8 @@ int main(void)
   MX_TIM4_Init();
   MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
-  App_Mpu6050_Init();
+  // App_Mpu6050_Init();
+  App_Mpu6050_Quaternion_Init();
   App_PWM_Init();
 
   /* USER CODE END 2 */
@@ -115,13 +117,17 @@ int main(void)
   // App_Mpu6050_Test();
   // App_PWM_SetPWM(100, 100, 100, 100);
 
-  App_Battery_Start();
+  // App_Battery_Start();
+  St_Angle mpuAngle = {0, 0, 0};
   
   while (1)
   {
     // App_MPU6050_GetAngle();
-    float tmp = App_Battery_VolCheck();
-    printf("%f\r\n", tmp);
+    // float tmp = App_Battery_VolCheck();
+    // printf("%f\r\n", tmp);
+    mpuAngle = App_Mpu6050_Quaternion_GetAngle();
+    /* 打印时记得是浮点型，，不然会出错 */
+    printf("俯仰角：%.1f\t\t横滚角：%.1f\t\t偏航角：%.1f\r\n", mpuAngle.pitch, mpuAngle.roll, mpuAngle.yaw);
     HAL_Delay(10);
     /* USER CODE END WHILE */
 

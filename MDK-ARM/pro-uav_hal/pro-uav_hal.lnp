@@ -38,11 +38,16 @@
 "pro-uav_hal\timers.o"
 "pro-uav_hal\app_mpu6050.o"
 "pro-uav_hal\int_mpu6050.o"
+"pro-uav_hal\app_mpu6050_quaternion.o"
 "pro-uav_hal\com_filter.o"
+"pro-uav_hal\com_imu.o"
+"pro-uav_hal\com_kalman.o"
 "pro-uav_hal\app_pwm.o"
 "pro-uav_hal\int_pwm.o"
 "pro-uav_hal\app_battery.o"
 "pro-uav_hal\int_battery.o"
+"pro-uav_hal\app_pilotled.o"
+"pro-uav_hal\int_pilotled.o"
 --library_type=microlib --strict --scatter "pro-uav_hal\pro-uav_hal.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

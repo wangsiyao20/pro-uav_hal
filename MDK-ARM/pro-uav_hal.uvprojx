@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F103xB</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F1xx/Include;../Drivers/CMSIS/Include;../Mid/FreeRTOS;../Mid/FreeRTOS/include;../Mid/FreeRTOS/portable/RVDS/ARM_CM3;../Angle-MPU_6050/App;../Angle-MPU_6050/Int;../Com/filter;../EleMachine-/App;../EleMachine-/Int;..\Battery_Power\App;..\Battery_Power\Int</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F1xx/Include;../Drivers/CMSIS/Include;../Mid/FreeRTOS;../Mid/FreeRTOS/include;../Mid/FreeRTOS/portable/RVDS/ARM_CM3;../Angle-MPU_6050/App;../Angle-MPU_6050/Int;../Com/filter;../EleMachine-/App;../EleMachine-/Int;../Battery_Power/App;../Battery_Power/Int;..\Pilot_LED\App;..\Pilot_LED\Int</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -971,6 +971,11 @@
               <FileType>1</FileType>
               <FilePath>..\Angle-MPU_6050\Int\Int_Mpu6050.c</FilePath>
             </File>
+            <File>
+              <FileName>App_Mpu6050_Quaternion.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Angle-MPU_6050\App\App_Mpu6050_Quaternion.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -980,6 +985,16 @@
               <FileName>Com_Filter.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Com\filter\Com_Filter.c</FilePath>
+            </File>
+            <File>
+              <FileName>Com_IMU.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Com\filter\Com_IMU.c</FilePath>
+            </File>
+            <File>
+              <FileName>Com_Kalman.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Com\filter\Com_Kalman.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1010,6 +1025,21 @@
               <FileName>Int_Battery.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Battery_Power\Int\Int_Battery.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Pilot_LED</GroupName>
+          <Files>
+            <File>
+              <FileName>App_PilotLED.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Pilot_LED\App\App_PilotLED.c</FilePath>
+            </File>
+            <File>
+              <FileName>Int_PilotLED.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Pilot_LED\Int\Int_PilotLED.c</FilePath>
             </File>
           </Files>
         </Group>
