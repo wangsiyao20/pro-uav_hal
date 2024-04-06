@@ -32,6 +32,7 @@
 #include "App_PWM.h"
 #include "App_Battery.h"
 #include "App_Mpu6050_Quaternion.h"
+#include "App_PilotLED.h"
 
 /* USER CODE END Includes */
 
@@ -119,7 +120,7 @@ int main(void)
 
   // App_Battery_Start();
   St_Angle mpuAngle = {0, 0, 0};
-  
+  pilotLed.status = DANGEROURS;
   while (1)
   {
     // App_MPU6050_GetAngle();
@@ -128,6 +129,8 @@ int main(void)
     mpuAngle = App_Mpu6050_Quaternion_GetAngle();
     /* 打印时记得是浮点型，，不然会出错 */
     printf("俯仰角：%.1f\t\t横滚角：%.1f\t\t偏航角：%.1f\r\n", mpuAngle.pitch, mpuAngle.roll, mpuAngle.yaw);
+    
+    App_PilotLED_Modify();
     HAL_Delay(10);
     /* USER CODE END WHILE */
 
