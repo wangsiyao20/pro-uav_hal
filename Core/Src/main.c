@@ -107,8 +107,8 @@ int main(void)
   MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
   // App_Mpu6050_Init();
-  App_Mpu6050_Quaternion_Init();
-  App_PWM_Init();
+  // App_Mpu6050_Quaternion_Init();
+  // App_PWM_Init();
 
   /* USER CODE END 2 */
 
@@ -119,19 +119,19 @@ int main(void)
   // App_PWM_SetPWM(100, 100, 100, 100);
 
   // App_Battery_Start();
-  St_Angle mpuAngle = {0, 0, 0};
+  // St_Angle mpuAngle = {0, 0, 0};
   pilotLed.status = DANGEROURS;
   while (1)
   {
     // App_MPU6050_GetAngle();
     // float tmp = App_Battery_VolCheck();
     // printf("%f\r\n", tmp);
-    mpuAngle = App_Mpu6050_Quaternion_GetAngle();
+    // mpuAngle = App_Mpu6050_Quaternion_GetAngle();
     /* ´òÓ¡Ê±¼ÇµÃÊÇ¸¡µãÐÍ£¬£¬²»È»»á³ö´í */
-    printf("¸©Ñö½Ç£º%.1f\t\tºá¹ö½Ç£º%.1f\t\tÆ«º½½Ç£º%.1f\r\n", mpuAngle.pitch, mpuAngle.roll, mpuAngle.yaw);
+    // printf("¸©Ñö½Ç£º%.1f\t\tºá¹ö½Ç£º%.1f\t\tÆ«º½½Ç£º%.1f\r\n", mpuAngle.pitch, mpuAngle.roll, mpuAngle.yaw);
     
     App_PilotLED_Modify();
-    HAL_Delay(10);
+    // HAL_Delay(10);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

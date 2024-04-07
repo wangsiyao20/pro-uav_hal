@@ -49,7 +49,7 @@ void App_Mpu6050_Quaternion_SetMPUOffsets() {
     Int_MPU6050_GetGyro(&mpu6050.gyroX, &mpu6050.gyroY, &mpu6050.gyroZ);
     MPU_Offset[0] = mpu6050.accX;
     MPU_Offset[1] = mpu6050.accY;
-    MPU_Offset[2] = mpu6050.accZ - 16384;   // Z轴上的加速度有一个力
+    MPU_Offset[2] = mpu6050.accZ - 16384;   // Z轴上的加速度有一个力，，把这个数值保留下来
     MPU_Offset[3] = mpu6050.gyroX;
     MPU_Offset[4] = mpu6050.gyroY;
     MPU_Offset[5] = mpu6050.gyroZ;

@@ -13,11 +13,12 @@ uint16_t led_count = 0;
 void App_PilotLED_Modify(void) {
 
     static uint16_t lastTime = 0;
+    // TODO  系统时钟的计数是从上电就开始的，，这里不会从0开始，，前面延时多了会有误差，，可想办法优化
     uint16_t nowTime = HAL_GetTick();
 
     if(nowTime - lastTime > pilotLed.ledFlashTime) {
         // 时间到，恢复成默认常亮
-        // pilotLed.status = AlwaysOn;
+        pilotLed.status = AlwaysOn;
         lastTime = nowTime;
     }
 
@@ -61,14 +62,14 @@ void App_PilotLED_Modify(void) {
     case DANGEROURS:
         /* 长亮两秒，闪烁一会 */
         led_count++;
-        if (led_count < 20)
+        if (led_count < 10)
         {
             Int_LED_On(LED1_GPIO_Port, LED1_Pin);
             Int_LED_On(LED2_GPIO_Port, LED2_Pin);
             Int_LED_On(LED3_GPIO_Port, LED3_Pin);
             Int_LED_On(LED4_GPIO_Port, LED4_Pin);
         }
-        else if (led_count < 30)
+        else if (led_count < 12)
         {
             Int_LED_Toggle(LED1_GPIO_Port, LED1_Pin);
             Int_LED_Toggle(LED2_GPIO_Port, LED2_Pin);
