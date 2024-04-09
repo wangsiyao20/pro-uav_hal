@@ -21,6 +21,7 @@
 #include "adc.h"
 #include "dma.h"
 #include "i2c.h"
+#include "spi.h"
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
@@ -33,6 +34,7 @@
 #include "App_Battery.h"
 #include "App_Mpu6050_Quaternion.h"
 #include "App_PilotLED.h"
+#include "Int_Si24R1.h"     // TODO
 
 /* USER CODE END Includes */
 
@@ -105,6 +107,7 @@ int main(void)
   MX_TIM3_Init();
   MX_TIM4_Init();
   MX_ADC1_Init();
+  MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
   // App_Mpu6050_Init();
   // App_Mpu6050_Quaternion_Init();
@@ -120,7 +123,10 @@ int main(void)
 
   // App_Battery_Start();
   // St_Angle mpuAngle = {0, 0, 0};
-  pilotLed.status = DANGEROURS;
+  // pilotLed.status = DANGEROURS;
+  if(!Int_NRF24L01_Check()) printf("校验成功!\r\n");
+  else printf("校验失败...\r\n");
+  uint8_t rx_buff[5]={0};
   while (1)
   {
     // App_MPU6050_GetAngle();
@@ -130,8 +136,13 @@ int main(void)
     /* 打印时记得是浮点型，，不然会出错 */
     // printf("俯仰角：%.1f\t\t横滚角：%.1f\t\t偏航角：%.1f\r\n", mpuAngle.pitch, mpuAngle.roll, mpuAngle.yaw);
     
-    App_PilotLED_Modify();
+    // App_PilotLED_Modify();
     // HAL_Delay(10);
+
+    /* =================== 测试2.4G 接收 =================== */
+    Int_NRF24L01_RxPacket(rx_buff);
+    HAL_Delay(4);
+    
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

@@ -5,6 +5,7 @@
 "pro-uav_hal\adc.o"
 "pro-uav_hal\dma.o"
 "pro-uav_hal\i2c.o"
+"pro-uav_hal\spi.o"
 "pro-uav_hal\tim.o"
 "pro-uav_hal\usart.o"
 "pro-uav_hal\stm32f1xx_it.o"
@@ -23,6 +24,7 @@
 "pro-uav_hal\stm32f1xx_hal_flash_ex.o"
 "pro-uav_hal\stm32f1xx_hal_exti.o"
 "pro-uav_hal\stm32f1xx_hal_i2c.o"
+"pro-uav_hal\stm32f1xx_hal_spi.o"
 "pro-uav_hal\stm32f1xx_hal_tim.o"
 "pro-uav_hal\stm32f1xx_hal_tim_ex.o"
 "pro-uav_hal\stm32f1xx_hal_uart.o"
@@ -48,6 +50,8 @@
 "pro-uav_hal\int_battery.o"
 "pro-uav_hal\app_pilotled.o"
 "pro-uav_hal\int_pilotled.o"
+"pro-uav_hal\app_si24r1.o"
+"pro-uav_hal\int_si24r1.o"
 --library_type=microlib --strict --scatter "pro-uav_hal\pro-uav_hal.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

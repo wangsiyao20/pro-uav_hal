@@ -27,6 +27,7 @@ pro-uav_hal\stm32f1xx_hal_adc_ex.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1x
 pro-uav_hal\stm32f1xx_hal_adc_ex.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 pro-uav_hal\stm32f1xx_hal_adc_ex.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h
 pro-uav_hal\stm32f1xx_hal_adc_ex.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
+pro-uav_hal\stm32f1xx_hal_adc_ex.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h
 pro-uav_hal\stm32f1xx_hal_adc_ex.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
 pro-uav_hal\stm32f1xx_hal_adc_ex.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 pro-uav_hal\stm32f1xx_hal_adc_ex.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h

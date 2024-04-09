@@ -22,16 +22,19 @@ Dialog DLL:      TCM.DLL V1.56.4.0
  
 <h2>Project:</h2>
 c:\1stm32\pro-stm32-6-uav_hal\pro-uav_hal\MDK-ARM\pro-uav_hal.uvprojx
-Project File Date:  04/04/2024
+Project File Date:  04/08/2024
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\02_arm5_compiler\Bin'
 Build target 'pro-uav_hal'
-compiling App_PilotLED.c...
+compiling Int_Si24R1.c...
+..\Communi-Si24R1\Int\Int_Si24R1.c(218): warning:  #223-D: function "printf" declared implicitly
+              printf("receive[%d]=%02x\r\n", i, txBuf[i]);
+..\Communi-Si24R1\Int\Int_Si24R1.c: 1 warning, 0 errors
 linking...
-Program Size: Code=14036 RO-data=312 RW-data=28 ZI-data=1588  
+Program Size: Code=15408 RO-data=312 RW-data=32 ZI-data=1672  
 FromELF: creating hex file...
-"pro-uav_hal\pro-uav_hal.axf" - 0 Error(s), 0 Warning(s).
+"pro-uav_hal\pro-uav_hal.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 

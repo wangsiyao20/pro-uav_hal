@@ -20,6 +20,8 @@
                 "c:\\1stm32\\pro-stm32-6-uav_hal\\pro-uav_hal\\Battery_Power\\Int",
                 "c:\\1stm32\\pro-stm32-6-uav_hal\\pro-uav_hal\\Pilot_LED\\App",
                 "c:\\1stm32\\pro-stm32-6-uav_hal\\pro-uav_hal\\Pilot_LED\\Int",
+                "c:\\1stm32\\pro-stm32-6-uav_hal\\pro-uav_hal\\Communi-Si24R1\\App",
+                "c:\\1stm32\\pro-stm32-6-uav_hal\\pro-uav_hal\\Communi-Si24R1\\Int",
                 "C:\\Keil_v5\\ARM\\ARMCC\\include",
                 "c:\\1stm32\\pro-stm32-6-uav_hal\\pro-uav_hal\\MDK-ARM",
                 "c:\\1stm32\\pro-stm32-6-uav_hal\\pro-uav_hal\\Core\\Src",

@@ -16,6 +16,9 @@
         "com_kalman.h": "c",
         "com_imu.h": "c",
         "app_pilotled.h": "c",
-        "int_pilotled.h": "c"
+        "int_pilotled.h": "c",
+        "int_si24r1.h": "c",
+        "app_si24r1.h": "c",
+        "spi.h": "c"
     }
 }

@@ -28,12 +28,14 @@ pro-uav_hal\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 pro-uav_hal\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 pro-uav_hal\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h
 pro-uav_hal\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
+pro-uav_hal\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h
 pro-uav_hal\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
 pro-uav_hal\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 pro-uav_hal\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
 pro-uav_hal\main.o: ../Core/Inc/adc.h
 pro-uav_hal\main.o: ../Core/Inc/dma.h
 pro-uav_hal\main.o: ../Core/Inc/i2c.h
+pro-uav_hal\main.o: ../Core/Inc/spi.h
 pro-uav_hal\main.o: ../Core/Inc/tim.h
 pro-uav_hal\main.o: ../Core/Inc/usart.h
 pro-uav_hal\main.o: ../Core/Inc/gpio.h
@@ -41,4 +43,5 @@ pro-uav_hal\main.o: C:\Keil_v5\ARM\02_arm5_compiler\Bin\..\include\stdio.h
 pro-uav_hal\main.o: ../EleMachine-/App/App_PWM.h
 pro-uav_hal\main.o: ../Battery_Power/App/App_Battery.h
 pro-uav_hal\main.o: ../Angle-MPU_6050/App/App_Mpu6050_Quaternion.h
-pro-uav_hal\main.o: ..\Pilot_LED\App\App_PilotLED.h
+pro-uav_hal\main.o: ../Pilot_LED/App/App_PilotLED.h
+pro-uav_hal\main.o: ../Communi-Si24R1/Int/Int_Si24R1.h
