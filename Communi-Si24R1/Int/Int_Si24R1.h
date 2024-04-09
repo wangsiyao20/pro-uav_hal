@@ -4,7 +4,9 @@
 
 #include "main.h"
 #include "spi.h"
+#include "stm32f1xx_hal.h"
 
+extern uint16_t connect_flag;
 
 #define Set_NRF24L01_CSN HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_SET)
 #define Clr_NRF24L01_CSN HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_RESET)
@@ -15,8 +17,8 @@
 //NRF24L01发送接收数据宽度定义
 #define TX_ADR_WIDTH    5                               //5字节的地址宽度
 #define RX_ADR_WIDTH    5                               //5字节的地址宽度
-#define TX_PLOAD_WIDTH  5                              //20字节的用户数据宽度
-#define RX_PLOAD_WIDTH  5                              //20字节的用户数据宽度
+#define TX_PLOAD_WIDTH  28                              //20字节的用户数据宽度
+#define RX_PLOAD_WIDTH  28                              //20字节的用户数据宽度
 
 /****************************************************************************************************/
 //NRF24L01寄存器操作命令

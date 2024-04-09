@@ -1,11 +1,12 @@
 #include "Int_Si24R1.h"
+#include "stdio.h"
 
 /* 这个芯片和NRF24L01芯片用法一样 */
 
-#define Clr_NRF24L01_CE HAL_GPIO_WritePin(SI_EN_GPIO_Port, SI_EN_Pin, GPIO_PIN_RESET)
-
 uint8_t TX_ADDRESS[TX_ADR_WIDTH] = {0x0A, 0x03, 0x06, 0x0E, 0x01}; // 定义一个静态发送地址
 uint8_t RX_ADDRESS[RX_ADR_WIDTH] = {0x0A, 0x03, 0x06, 0x0E, 0x01}; // 定义一个静态发送地址
+
+uint16_t connect_flag = 1;       // 0连接成功，1连接失败
 
 /**
  * @brief 写一个字节
@@ -208,20 +209,20 @@ uint8_t Int_NRF24L01_RxPacket(uint8_t* txBuf) {
     /* 如果收到数据了，就开始读 RX FIFO */
     if (state & RX_OK)
     {
+        connect_flag = 0;
         /* 从 RX FIFO读取数据到 buff 里 */
         Int_NRF24L01_Read_Buf(RD_RX_PLOAD, txBuf, RX_PLOAD_WIDTH);
         /* 清空 RX FIFO */
         Int_NRF24L01_Write_Reg(FLUSH_RX, 0xff);
         /* =============测试：打印接收的数据================= */
-        for (uint8_t i = 0; i < RX_PLOAD_WIDTH; i++)
-        {
-            printf("receive[%d]=%02x\r\n", i, txBuf[i]);
-        }
+        // for (uint8_t i = 0; i < RX_PLOAD_WIDTH; i++)
+        // {
+        //     printf("receive[%d]=%02x\r\n", i, txBuf[i]);
+        // }
         /* ================================================ */
 
         return 0; // 成功接收数据
     }
-
     return 1; // 未接收到数据
 
 }

@@ -34,7 +34,7 @@
 #include "App_Battery.h"
 #include "App_Mpu6050_Quaternion.h"
 #include "App_PilotLED.h"
-#include "Int_Si24R1.h"     // TODO
+#include "App_Si24R1.h"     
 
 /* USER CODE END Includes */
 
@@ -124,9 +124,7 @@ int main(void)
   // App_Battery_Start();
   // St_Angle mpuAngle = {0, 0, 0};
   // pilotLed.status = DANGEROURS;
-  if(!Int_NRF24L01_Check()) printf("校验成功!\r\n");
-  else printf("校验失败...\r\n");
-  uint8_t rx_buff[5]={0};
+
   while (1)
   {
     // App_MPU6050_GetAngle();
@@ -140,8 +138,10 @@ int main(void)
     // HAL_Delay(10);
 
     /* =================== 测试2.4G 接收 =================== */
-    Int_NRF24L01_RxPacket(rx_buff);
-    HAL_Delay(4);
+    App_Si24R1_Receive();
+    // App_Si24R1_RC_Unlock();
+    App_Si24R1_RC_Analysis();
+    HAL_Delay(10);
     
     /* USER CODE END WHILE */
 
