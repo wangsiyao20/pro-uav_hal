@@ -5,7 +5,9 @@
 
 void App_PWM_Init(void);
 
-void App_PWM_SetPWM(int pwa, int pwb, int pwc, int pwd);
+// void App_PWM_SetPWM(int pwa, int pwb, int pwc, int pwd);
+
+void App_PWM_Moter_Control();
 
 #endif
 

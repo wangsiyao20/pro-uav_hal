@@ -102,10 +102,10 @@ void App_Mpu6050_Quaternion_OriginalData(void) {
     mpu6050.gyroZ = 0.85 * lastGyro[2] + 0.15 * mpu6050.gyroZ;
     lastGyro[2] = mpu6050.gyroZ;
 
-    // TODO  TEST...
-    printf("校准并滤波后的值为：\r\n");
-    printf("x加速度：%d\t\ty加速的：%d\t\tz加速度：%d\r\n", mpu6050.accX, mpu6050.accY, mpu6050.accZ);
-    printf("x角速度：%d\t\ty角速的：%d\t\tz角速度：%d\r\n", mpu6050.gyroX, mpu6050.gyroY, mpu6050.gyroZ);
+    // // TODO  TEST...
+    // printf("校准并滤波后的值为：\r\n");
+    // printf("x加速度：%d\t\ty加速的：%d\t\tz加速度：%d\r\n", mpu6050.accX, mpu6050.accY, mpu6050.accZ);
+    // printf("x角速度：%d\t\ty角速的：%d\t\tz角速度：%d\r\n", mpu6050.gyroX, mpu6050.gyroY, mpu6050.gyroZ);
 }
 
 /**

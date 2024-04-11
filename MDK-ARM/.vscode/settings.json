@@ -19,6 +19,8 @@
         "int_pilotled.h": "c",
         "int_si24r1.h": "c",
         "app_si24r1.h": "c",
-        "spi.h": "c"
+        "spi.h": "c",
+        "com_pid.h": "c",
+        "math.h": "c"
     }
 }

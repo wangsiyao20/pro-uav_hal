@@ -179,8 +179,8 @@ void Int_MPU6050_Init()
     {
         /* 8、时钟：默认8M晶振===》 X轴上的时钟 */
         Int_MPU6050_WriteByte(MPU_PWR_MGMT1_REG, 0X01);
-        /* 8、陀螺仪的采样率\设置低通滤波带宽(采样率一半) ，如果频率100，10ms采样一次*/
-        Int_MPU_Set_Rate(100);     
+        /* 8、陀螺仪的采样率\设置低通滤波带宽(采样率一半) ，如果频率500，2ms采样一次*/
+        Int_MPU_Set_Rate(500);     
         /* 9、加速度与陀螺仪都工作 */
         Int_MPU6050_WriteByte(MPU_PWR_MGMT2_REG, 0X00); 
     }

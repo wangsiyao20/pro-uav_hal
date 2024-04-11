@@ -45,3 +45,4 @@ pro-uav_hal\main.o: ../Battery_Power/App/App_Battery.h
 pro-uav_hal\main.o: ../Angle-MPU_6050/App/App_Mpu6050_Quaternion.h
 pro-uav_hal\main.o: ../Pilot_LED/App/App_PilotLED.h
 pro-uav_hal\main.o: ../Communi-Si24R1/App/App_Si24R1.h
+pro-uav_hal\main.o: ..\Com\pid\Com_PID.h

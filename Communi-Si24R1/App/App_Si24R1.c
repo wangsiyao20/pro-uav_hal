@@ -1,5 +1,19 @@
 #include "App_Si24R1.h"
 #include "Int_Si24R1.h"
+#include "App_Mpu6050_Quaternion.h"
+
+extern const float Gyro_G;
+
+/* 欧拉角，，角度 */
+PidObject pidPitch;
+PidObject pidRoll;
+PidObject pidYaw;
+/* 三个轴的角速度 */
+PidObject pidRateX;
+PidObject pidRateY;
+PidObject pidRateZ;
+
+PidObject *pids[6] = {&pidPitch, &pidRoll, &pidYaw, &pidRateX, &pidRateY, &pidRateZ};
 
 struct _Rc remote;
 
@@ -18,11 +32,11 @@ void App_Si24R1_Remote_Check(uint8_t *buf, uint8_t len) {
     if(connect_flag == 1) {   // 通讯成功，，开始解析数据
 
         /* 帧头、功能校验 */
-        if( !( (buf[0] == 0xAA) && (buf[1] == 0xAF) ) ) {   // 不满足直接返回
+        if( !( (buf[0] == 0xAC) && (buf[1] == 0xAF) ) ) {   // 不满足直接返回
             return;
         }
 
-        /* 校验和校验 */
+        /* 校验和 */
         // 取出校验和
         uint32_t rc_sum = (*(buf+len-4) << 24) | 
         (*(buf+len-3) << 16) |
@@ -50,9 +64,6 @@ void App_Si24R1_Remote_Check(uint8_t *buf, uint8_t len) {
             // 辅助通道不取了，结构体也没定义这个位置，发送的也没放值
         }
     } 
-    // else {
-    //     connect_count++;
-    // }
 
     if(connect_flag > 1000) {    // 长时间失联，避免越界，不加了
         connect_flag = 310;      // 注意后面失联处理函数的判断时间
@@ -66,16 +77,18 @@ void App_Si24R1_Remote_Check(uint8_t *buf, uint8_t len) {
 
 }
 
+uint8_t rx_buff[28]={0};
 /**
  * @brief 接收
  * 
  */
-uint8_t rx_buff[28]={0};
 void App_Si24R1_Receive(void) {
     Int_NRF24L01_RxPacket(rx_buff);
     App_Si24R1_Remote_Check(rx_buff, 28);
 }
 
+
+uint8_t status = WAITTING_1; // 默认阶段1
 
 /**
  * @brief 根据指令，判断解锁飞机
@@ -84,7 +97,7 @@ void App_Si24R1_Receive(void) {
 void App_Si24R1_RC_Unlock() {
 
     /* 解锁指令：油门最低 ——》油门最高 ——》油门最低 ——》解锁 */
-    static uint8_t status = WAITTING_1; // 默认阶段1
+
     static uint32_t timeout = 0;         // 延时
 
     if(status == ENMERGENCY) {          // 紧急情况
@@ -146,7 +159,7 @@ void App_Si24R1_RC_Unlock() {
 }
 
 /**
- * @brief 遥控指令解析（比如解锁指令），添加失联后的处理逻辑
+ * @brief 解析出数据后以及失联后的处理函数
  * 
  */
 void App_Si24R1_RC_Analysis() {
@@ -168,10 +181,10 @@ void App_Si24R1_RC_Analysis() {
             if(remote.THR < 1200) {
                 remote.THR = 1000;
                 /* 尝试重连 */
-                printf("restart 2.4G...\r\n");
+                // printf("restart 2.4G...\r\n");
                 while (Int_NRF24L01_Check());
                 // Int_NRF24L01_RX_Mode();
-                printf("restart 2.4G success...\r\n");
+                // printf("restart 2.4G success...\r\n");
             }
             else {                              // 油门不低，缓慢减少油门值
                 if( thr_count ++ > 100 ) {      // 假设10ms执行一次，100次=1s
@@ -180,8 +193,35 @@ void App_Si24R1_RC_Analysis() {
                 }
             }
             LIMIT(remote.THR, 1000, 2000);
+            // printf("油门为：%d\r\n", remote.THR);
         }
     }
 }
 
+
+/**
+ * @brief PID计算
+ * 
+ */
+void App_Si24R1_PID_Control(float dt) {
+    ResetPID(pids, 6);
+    if(status == PROCESS) {
+        /* 赋值角度的测量值 */
+        pidPitch.measured = mpuAngle.pitch;
+        pidRoll.measured = mpuAngle.roll;
+        pidYaw.measured = mpuAngle.yaw;
+        /* 赋值角速度的测量值 */
+        pidRateX.measured = mpu6050.gyroX * Gyro_G;
+        pidRateY.measured = mpu6050.gyroY * Gyro_G;
+        pidRateZ.measured = mpu6050.gyroZ * Gyro_G;
+        /*
+            俯仰角 ---》 Y轴角速度
+            横滚角 ---》 X轴角速度
+            偏航角 ---》 Z轴角速度
+         */
+        CasecadePID(&pidPitch, &pidRateY, dt);
+        CasecadePID(&pidRoll, &pidRateX, dt);
+        CasecadePID(&pidYaw, &pidRateZ, dt);
+    }
+}
 

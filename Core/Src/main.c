@@ -110,39 +110,23 @@ int main(void)
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
   // App_Mpu6050_Init();
-  // App_Mpu6050_Quaternion_Init();
-  // App_PWM_Init();
+  App_Mpu6050_Quaternion_Init();
+  App_PWM_Init();
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   printf("begin...\r\n");
-  // App_Mpu6050_Test();
-  // App_PWM_SetPWM(100, 100, 100, 100);
-
-  // App_Battery_Start();
-  // St_Angle mpuAngle = {0, 0, 0};
-  // pilotLed.status = DANGEROURS;
 
   while (1)
   {
-    // App_MPU6050_GetAngle();
-    // float tmp = App_Battery_VolCheck();
-    // printf("%f\r\n", tmp);
-    // mpuAngle = App_Mpu6050_Quaternion_GetAngle();
-    /* 打印时记得是浮点型，，不然会出错 */
-    // printf("俯仰角：%.1f\t\t横滚角：%.1f\t\t偏航角：%.1f\r\n", mpuAngle.pitch, mpuAngle.roll, mpuAngle.yaw);
-    
-    // App_PilotLED_Modify();
-    // HAL_Delay(10);
+    App_Mpu6050_Quaternion_GetAngle();    // 获取角度，，以供后面调PID
+    App_Si24R1_Receive();                 // 接收遥控数据
+    App_Si24R1_RC_Analysis();             // 解析数据
+    App_Si24R1_PID_Control(0.002f);       // PID控制
+    App_PWM_Moter_Control();              // pwm控制
 
-    /* =================== 测试2.4G 接收 =================== */
-    App_Si24R1_Receive();
-    // App_Si24R1_RC_Unlock();
-    App_Si24R1_RC_Analysis();
-    HAL_Delay(10);
-    
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

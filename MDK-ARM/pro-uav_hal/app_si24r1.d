@@ -1,6 +1,5 @@
 pro-uav_hal\app_si24r1.o: ..\Communi-Si24R1\App\App_Si24R1.c
 pro-uav_hal\app_si24r1.o: ..\Communi-Si24R1\App\App_Si24R1.h
-pro-uav_hal\app_si24r1.o: ../Core/Inc/main.h
 pro-uav_hal\app_si24r1.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 pro-uav_hal\app_si24r1.o: ../Core/Inc/stm32f1xx_hal_conf.h
 pro-uav_hal\app_si24r1.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h
@@ -33,6 +32,9 @@ pro-uav_hal\app_si24r1.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.
 pro-uav_hal\app_si24r1.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
 pro-uav_hal\app_si24r1.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 pro-uav_hal\app_si24r1.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
+pro-uav_hal\app_si24r1.o: ../Core/Inc/main.h
 pro-uav_hal\app_si24r1.o: C:\Keil_v5\ARM\02_arm5_compiler\Bin\..\include\stdio.h
+pro-uav_hal\app_si24r1.o: ..\Com\pid\Com_PID.h
 pro-uav_hal\app_si24r1.o: ../Communi-Si24R1/Int/Int_Si24R1.h
 pro-uav_hal\app_si24r1.o: ../Core/Inc/spi.h
+pro-uav_hal\app_si24r1.o: ../Angle-MPU_6050/App/App_Mpu6050_Quaternion.h
